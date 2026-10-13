@@ -2,288 +2,1088 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="My personal portfolio showcasing my skills, projects, and journey in technology.">
-  <meta name="theme-color" content="#111111">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="My personal portfolio website.">
+<title>Protifolito | My Portfolio</title>
 
-  <title>Protifolito | Personal Portfolio</title>
+<style>
+/* ===== COLOR PALETTE ===== */
+:root {
+  --bg: #111111;
+  --surface: #1b1b1b;
+  --text: #f5f0e8;
+  --muted: #b9b2a8;
+  --accent: #e5d5b8;
+  --border: #35332f;
+}
 
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+[data-theme="light"] {
+  --bg: #f5f1e8;
+  --surface: #ebe5d9;
+  --text: #282720;
+  --muted: #625d54;
+  --accent: #655640;
+  --border: #d8d0c2;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  transition: background 0.3s, color 0.3s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: min(1120px, 88%);
+  margin: auto;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a,
+.social-links a {
+  font-size: 0.85rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.social-links a:hover {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 610px;
+  padding-top: 90px;
+  padding-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(3.4rem, 7vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: -5px;
+  margin-bottom: 24px;
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+.hero-description {
+  color: var(--muted);
+  max-width: 450px;
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 22px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.button-secondary {
+  color: var(--text);
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 40px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* ===== HERO ART ===== */
+.hero-art {
+  min-height: 350px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.art-circle {
+  position: absolute;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.art-circle-one {
+  width: 300px;
+  height: 300px;
+}
+
+.art-circle-two {
+  width: 230px;
+  height: 230px;
+}
+
+.art-card {
+  z-index: 1;
+  width: 245px;
+  min-height: 260px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotate(-5deg);
+  box-shadow: 12px 12px 0 var(--border);
+}
+
+.art-card-label,
+.art-card-number {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.art-symbol {
+  color: var(--accent);
+  font-size: 6rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.art-card p {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.art-decoration {
+  position: absolute;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.art-decoration-one {
+  top: 30px;
+  right: 20px;
+}
+
+.art-decoration-two {
+  bottom: 30px;
+  left: 25px;
+}
+
+/* ===== GENERAL SECTIONS ===== */
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section-alt {
+  background: var(--surface);
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section-heading {
+  margin-bottom: 48px;
+}
+
+.section-heading h2,
+.contact-content h2 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -2px;
+}
+
+.section-description {
+  color: var(--muted);
+  margin-top: 15px;
+  max-width: 520px;
+}
+
+/* ===== ABOUT ===== */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.about-lead {
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.about-details {
+  color: var(--muted);
+}
+
+.about-details p + p {
+  margin-top: 18px;
+}
+
+/* ===== SKILLS ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.skill-card {
+  min-height: 210px;
+  padding: 25px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.skill-number {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-bottom: 35px;
+}
+
+.skill-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ===== PROJECTS ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.project-visual {
+  height: 235px;
+  padding: 18px;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-visual-label {
+  position: absolute;
+  top: 15px;
+  left: 17px;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.visual-window {
+  width: 78%;
+  height: 140px;
+  border: 1px solid var(--muted);
+  padding: 12px;
+  transform: rotate(-4deg);
+}
+
+.visual-window > span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 5px;
+}
+
+.visual-window-content {
+  padding-top: 15px;
+}
+
+.visual-line {
+  height: 6px;
+  width: 80%;
+  background: var(--muted);
+  margin-bottom: 9px;
+  opacity: 0.7;
+}
+
+.visual-line-short {
+  width: 45%;
+}
+
+.visual-block {
+  height: 45px;
+  background: var(--accent);
+  opacity: 0.75;
+  margin-top: 15px;
+}
+
+.project-visual-two {
+  background: var(--bg);
+}
+
+.visual-dashboard {
+  width: 85%;
+  height: 145px;
+  border: 1px solid var(--border);
+  display: flex;
+}
+
+.dashboard-sidebar {
+  width: 25%;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 15px;
+}
+
+.dashboard-heading {
+  width: 60%;
+  height: 8px;
+  background: var(--muted);
+  margin-bottom: 18px;
+}
+
+.dashboard-chart {
+  height: 75px;
+  display: flex;
+  align-items: end;
+  gap: 7px;
+}
+
+.dashboard-chart span {
+  flex: 1;
+  background: var(--accent);
+  opacity: 0.8;
+}
+
+.dashboard-chart span:nth-child(1) { height: 30%; }
+.dashboard-chart span:nth-child(2) { height: 55%; }
+.dashboard-chart span:nth-child(3) { height: 40%; }
+.dashboard-chart span:nth-child(4) { height: 85%; }
+.dashboard-chart span:nth-child(5) { height: 60%; }
+.dashboard-chart span:nth-child(6) { height: 95%; }
+.dashboard-chart span:nth-child(7) { height: 70%; }
+
+.project-visual-three {
+  background: var(--surface);
+}
+
+.visual-phone {
+  width: 90px;
+  height: 165px;
+  border: 2px solid var(--muted);
+  border-radius: 13px;
+  padding: 15px 9px;
+  transform: rotate(7deg);
+}
+
+.phone-notch {
+  width: 30px;
+  height: 4px;
+  background: var(--muted);
+  border-radius: 5px;
+  margin: -8px auto 15px;
+}
+
+.phone-circle {
+  width: 35px;
+  height: 35px;
+  background: var(--accent);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+}
+
+.phone-line {
+  height: 5px;
+  background: var(--muted);
+  margin: 8px 0;
+  opacity: 0.65;
+}
+
+.phone-line-short {
+  width: 60%;
+}
+
+.phone-button {
+  height: 15px;
+  background: var(--accent);
+  margin-top: 13px;
+}
+
+.project-info {
+  padding: 22px;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.7rem;
+  margin-bottom: 15px;
+}
+
+.project-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 22px;
+}
+
+.text-link {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.text-link:hover {
+  color: var(--accent);
+}
+
+/* ===== CONTACT ===== */
+.contact-section {
+  background: var(--surface);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.contact-content .eyebrow {
+  margin-bottom: 25px;
+}
+
+.contact-content h2 {
+  margin-bottom: 22px;
+}
+
+.contact-description {
+  max-width: 490px;
+  margin: 0 auto 30px;
+  color: var(--muted);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  padding: 25px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-content p {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 850px) {
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+  }
+
+  .hero {
+    gap: 25px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+
+  .navbar {
+    padding: 15px 0;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 75px;
+    padding-bottom: 60px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 3.6rem;
+    letter-spacing: -3px;
+  }
+
+  .hero-art {
+    min-height: 310px;
+    margin-top: 10px;
+  }
+
+  .art-circle-one {
+    width: 260px;
+    height: 260px;
+  }
+
+  .art-circle-two {
+    width: 200px;
+    height: 200px;
+  }
+
+  .art-card {
+    width: 220px;
+    min-height: 230px;
+  }
+
+  .section,
+  .section-alt,
+  .contact-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .section-heading h2,
+  .contact-content h2 {
+    letter-spacing: -1px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .about-lead {
+    font-size: 1.4rem;
+  }
+
+  .skills-grid {
+    gap: 10px;
+  }
+
+  .skill-card {
+    padding: 18px;
+    min-height: 190px;
+  }
+
+  .skill-number {
+    margin-bottom: 25px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card:last-child {
+    grid-column: auto;
+  }
+
+  .project-visual {
+    height: 230px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition: none !important;
+  }
+}
+</style>
 </head>
 
 <body>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="logo" href="#home">Protifolito<span>.</span></a>
 
-  <!-- Navigation -->
-  <header class="header">
-    <a href="#home" class="logo">Protifolito<span>.</span></a>
-
-    <nav class="nav" aria-label="Main navigation">
+    <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-    </nav>
+    </div>
 
-    <button
-      class="theme-toggle"
-      id="theme-toggle"
-      type="button"
-      aria-label="Switch to light mode">
-      <span id="theme-icon" aria-hidden="true">☼</span>
+    <button class="theme-toggle" id="theme-toggle" type="button"
+      aria-label="Switch color theme">
+      <span id="theme-icon" aria-hidden="true">☀</span>
       <span id="theme-label">Light mode</span>
     </button>
-  </header>
+  </nav>
+</header>
 
-  <main>
-
-    <!-- Home -->
-    <section class="hero section" id="home">
-
-      <div class="hero-content">
-        <p class="eyebrow">PORTFOLIO / 2026</p>
-
-        <h1>
-          Ideas into<br>
-          <span>digital reality.</span>
-        </h1>
-
-        <p class="hero-description">
-          Hello, I'm <strong>Your Name</strong> — a student and aspiring
-          developer passionate about technology, design, and creating
-          meaningful digital experiences.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projects" class="button button-primary">
-            Explore my work ↗
-          </a>
-
-          <a href="#contact" class="button button-secondary">
-            Get in touch
-          </a>
-        </div>
-      </div>
-
-      <!-- Decorative artwork made with CSS -->
-      <div class="hero-art" aria-hidden="true">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="orbit orbit-three"></div>
-        <div class="orb"></div>
-        <p class="art-caption">LEARN · BUILD · IMPROVE</p>
-      </div>
-
-      <div class="hero-bottom">
-        <span>STUDENT</span>
-        <span>DEVELOPER IN PROGRESS</span>
-        <a href="#about">SCROLL TO DISCOVER ↓</a>
-      </div>
-
-    </section>
-
-    <!-- About -->
-    <section class="section content-section" id="about">
-
-      <div class="section-heading">
-        <p class="eyebrow">01 / INTRODUCTION</p>
-        <h2>A little<br>about me.</h2>
-      </div>
-
-      <div class="section-content">
-        <p class="large-copy">
-          Curious by nature. Driven by creativity. Inspired by technology.
-        </p>
-
-        <p class="body-copy">
-          I'm a student interested in software development and
-          problem-solving. I enjoy learning new technologies,
-          experimenting with code, and turning ideas into practical projects.
-        </p>
-
-        <p class="body-copy">
-          My goal is to keep learning, improve my skills, and create
-          digital experiences that are simple, useful, and memorable.
-        </p>
-
-        <a href="#contact" class="text-link">
-          Let's connect ↗
-        </a>
-      </div>
-
-    </section>
-
-    <!-- Skills -->
-    <section class="section content-section" id="skills">
-
-      <div class="section-heading">
-        <p class="eyebrow">02 / EXPERTISE</p>
-        <h2>Skills &<br>interests.</h2>
-      </div>
-
-      <div class="section-content">
-        <p class="body-copy">
-          Technologies I'm learning and using to develop my skills.
-        </p>
-
-        <div class="skills-grid">
-
-          <article class="skill">
-            <span class="skill-number">01</span>
-            <h3>HTML</h3>
-            <p>Structure and accessibility</p>
-          </article>
-
-          <article class="skill">
-            <span class="skill-number">02</span>
-            <h3>CSS</h3>
-            <p>Design and responsive layouts</p>
-          </article>
-
-          <article class="skill">
-            <span class="skill-number">03</span>
-            <h3>JavaScript</h3>
-            <p>Interactive experiences</p>
-          </article>
-
-          <article class="skill">
-            <span class="skill-number">04</span>
-            <h3>Java / Python</h3>
-            <p>Logic and problem-solving</p>
-          </article>
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Projects -->
-    <section class="section projects-section" id="projects">
-
-      <div class="projects-header">
-        <div>
-          <p class="eyebrow">03 / SELECTED WORK</p>
-          <h2>Things I've<br>been building.</h2>
-        </div>
-
-        <p class="body-copy">
-          A selection of projects from my learning journey.
-          More experiments and ideas are on the way.
-        </p>
-      </div>
-
-      <div class="projects-grid">
-
-        <article class="project-card">
-          <div class="project-visual visual-one" aria-hidden="true">
-            <span class="visual-symbol">P.</span>
-            <span class="visual-index">PROJECT / 01</span>
-          </div>
-
-          <div class="project-info">
-            <div>
-              <p class="eyebrow">HTML · CSS · JS</p>
-              <h3>Personal Portfolio</h3>
-              <p class="project-description">
-                A personal website showcasing my skills, projects,
-                and learning journey.
-              </p>
-            </div>
-
-            <a href="#home" class="project-link"
-               aria-label="View personal portfolio">↗</a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-two" aria-hidden="true">
-            <span class="visual-symbol">{ }</span>
-            <span class="visual-index">PROJECT / 02</span>
-          </div>
-
-          <div class="project-info">
-            <div>
-              <p class="eyebrow">JAVA</p>
-              <h3>Java Application</h3>
-              <p class="project-description">
-                Replace this description with details about your Java project.
-              </p>
-            </div>
-
-            <a href="#contact" class="project-link"
-               aria-label="Ask about Java project">↗</a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-three" aria-hidden="true">
-            <span class="visual-symbol">[ ]</span>
-            <span class="visual-index">PROJECT / 03</span>
-          </div>
-
-          <div class="project-info">
-            <div>
-              <p class="eyebrow">PYTHON</p>
-              <h3>Python Project</h3>
-              <p class="project-description">
-                Add your Python project details and explain what it does.
-              </p>
-            </div>
-
-            <a href="#contact" class="project-link"
-               aria-label="Ask about Python project">↗</a>
-          </div>
-        </article>
-
-      </div>
-
-    </section>
-
-    <!-- Contact -->
-    <section class="section contact-section" id="contact">
-
-      <p class="eyebrow">04 / GET IN TOUCH</p>
-
-      <h2>
-        Have an idea?<br>
-        <span>Let's talk.</span>
-      </h2>
-
-      <p class="body-copy">
-        I'm open to connecting with people, sharing ideas,
-        and exploring opportunities to learn and build.
+<main>
+  <section class="hero container" id="home">
+    <div class="hero-content">
+      <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+      <h1>Hello, I'm<br><span class="accent-text">Your Name.</span></h1>
+      <p class="hero-description">
+        I create thoughtful digital experiences through design,
+        creativity, and code.
       </p>
 
       <div class="hero-actions">
-        <a href="mailto:your.email@example.com"
-           class="button button-primary">
-          Send me an email ↗
+        <a class="button button-primary" href="#projects">
+          Explore my work <span aria-hidden="true">↗</span>
         </a>
-
-        <a href="https://github.com/YOUR-USERNAME"
-           class="button button-secondary"
-           target="_blank"
-           rel="noopener noreferrer">
-          GitHub profile ↗
+        <a class="button button-secondary" href="#contact">
+          Get in touch
         </a>
       </div>
 
-    </section>
+      <div class="hero-note">
+        <span class="status-dot"></span>
+        Open to opportunities
+      </div>
+    </div>
 
-  </main>
+    <div class="hero-art" aria-label="Decorative portfolio artwork">
+      <div class="art-circle art-circle-one"></div>
+      <div class="art-circle art-circle-two"></div>
+      <div class="art-card">
+        <span class="art-card-label">CREATIVE MINDSET</span>
+        <div class="art-symbol">✳</div>
+        <p>Ideas into reality.</p>
+        <span class="art-card-number">01 / 04</span>
+      </div>
+      <span class="art-decoration art-decoration-one">✳</span>
+      <span class="art-decoration art-decoration-two">+</span>
+    </div>
+  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <a href="#home" class="logo">Protifolito<span>.</span></a>
+  <section class="section container" id="about">
+    <div class="section-heading">
+      <p class="eyebrow">A LITTLE ABOUT ME</p>
+      <h2>Getting to know <span class="accent-text">me.</span></h2>
+    </div>
 
-    <p>Designed with intention. Built with code.</p>
+    <div class="about-content">
+      <p class="about-lead">
+        I'm a curious creator who enjoys turning ideas into
+        meaningful digital experiences.
+      </p>
+      <div class="about-details">
+        <p>
+          I believe great work comes from combining simplicity,
+          functionality, and attention to detail. I enjoy learning
+          new technologies, solving problems, and building projects
+          that people find useful.
+        </p>
+        <p>
+          This portfolio is a collection of my journey, skills,
+          experiments, and the projects I'm proud to share.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <p>© <span id="year">2026</span> Your Name</p>
+  <section class="section-alt" id="skills">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">WHAT I WORK WITH</p>
+        <h2>My creative <span class="accent-text">toolkit.</span></h2>
+        <p class="section-description">
+          The tools and technologies I use to bring ideas to life.
+        </p>
+      </div>
 
-    <a href="#home" class="back-top" aria-label="Back to top">↑</a>
-  </footer>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <span class="skill-number">01</span>
+          <h3>HTML</h3>
+          <p>Building clear and accessible web structures.</p>
+        </article>
+        <article class="skill-card">
+          <span class="skill-number">02</span>
+          <h3>CSS</h3>
+          <p>Creating responsive layouts and visual experiences.</p>
+        </article>
+        <article class="skill-card">
+          <span class="skill-number">03</span>
+          <h3>JavaScript</h3>
+          <p>Adding interaction and useful functionality.</p>
+        </article>
+        <article class="skill-card">
+          <span class="skill-number">04</span>
+          <h3>Creative Design</h3>
+          <p>Exploring typography, color, and clean interfaces.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <section class="section container" id="projects">
+    <div class="section-heading">
+      <p class="eyebrow">SELECTED WORK</p>
+      <h2>Things I've <span class="accent-text">created.</span></h2>
+      <p class="section-description">
+        Example projects. Replace these with your own work.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-visual project-visual-one">
+          <span class="project-visual-label">PROJECT / 01</span>
+          <div class="visual-window">
+            <span></span><span></span><span></span>
+            <div class="visual-window-content">
+              <div class="visual-line"></div>
+              <div class="visual-line visual-line-short"></div>
+              <div class="visual-block"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span>Web Development</span><span>01</span>
+          </div>
+          <h3>Personal Website</h3>
+          <p>
+            A clean, responsive website designed to introduce a
+            person and showcase their work.
+          </p>
+          <a class="text-link" href="#contact">
+            Ask about this project ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-visual project-visual-two">
+          <span class="project-visual-label">PROJECT / 02</span>
+          <div class="visual-dashboard">
+            <div class="dashboard-sidebar"></div>
+            <div class="dashboard-main">
+              <div class="dashboard-heading"></div>
+              <div class="dashboard-chart">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span>UI / UX Concept</span><span>02</span>
+          </div>
+          <h3>Minimal Dashboard</h3>
+          <p>
+            A simple dashboard concept focused on clarity,
+            organization, and a distraction-free experience.
+          </p>
+          <a class="text-link" href="#contact">
+            Ask about this project ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-visual project-visual-three">
+          <span class="project-visual-label">PROJECT / 03</span>
+          <div class="visual-phone">
+            <div class="phone-notch"></div>
+            <div class="phone-content">
+              <div class="phone-circle">✳</div>
+              <div class="phone-line"></div>
+              <div class="phone-line phone-line-short"></div>
+              <div class="phone-button"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-meta">
+            <span>Web Design</span><span>03</span>
+          </div>
+          <h3>Mobile Experience</h3>
+          <p>
+            A mobile-first interface concept built around
+            simplicity and comfortable navigation.
+          </p>
+          <a class="text-link" href="#contact">
+            Ask about this project ↗
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="container contact-content">
+      <p class="eyebrow">HAVE A PROJECT IN MIND?</p>
+      <h2>
+        Let's make something<br>
+        <span class="accent-text">meaningful.</span>
+      </h2>
+      <p class="contact-description">
+        Have an idea, a project, or an opportunity to discuss?
+        I'd love to hear from you.
+      </p>
+      <a class="button button-primary"
+         href="mailto:your.email@example.com">
+        Say hello ↗
+      </a>
+
+      <div class="social-links">
+        <a href="https://github.com/YOUR-USERNAME"
+           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="mailto:your.email@example.com">Email ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <a class="logo" href="#home">Protifolito<span>.</span></a>
+    <p>Designed with intention. Built with care.</p>
+    <p>© <span id="current-year"></span> Your Name</p>
+  </div>
+</footer>
+
+<script>
+/* ===== DARK / LIGHT MODE ===== */
+const html = document.documentElement;
+const themeButton = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+const themeLabel = document.getElementById("theme-label");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(theme) {
+  html.setAttribute("data-theme", theme);
+
+  const isDark = theme === "dark";
+
+  themeIcon.textContent = isDark ? "☀" : "☾";
+  themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+  themeButton.setAttribute(
+    "aria-label",
+    isDark ? "Switch to light mode" : "Switch to dark mode"
+  );
+
+  themeColor.setAttribute(
+    "content",
+    isDark ? "#111111" : "#f5f1e8"
+  );
+
+  try {
+    localStorage.setItem("protifolito-theme", theme);
+  } catch (error) {
+    // Theme still works if browser storage is unavailable.
+  }
+}
+
+let savedTheme = "dark";
+
+try {
+  savedTheme = localStorage.getItem("protifolito-theme") || "dark";
+} catch (error) {
+  savedTheme = "dark";
+}
+
+applyTheme(savedTheme === "light" ? "light" : "dark");
+
+themeButton.addEventListener("click", function () {
+  const currentTheme = html.getAttribute("data-theme");
+  applyTheme(currentTheme === "dark" ? "light" : "dark");
+});
+
+/* ===== CURRENT YEAR ===== */
+document.getElementById("current-year").textContent =
+  new Date().getFullYear();
+</script>
 </body>
 </html>
