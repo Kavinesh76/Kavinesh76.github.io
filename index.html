@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore my portfolio, skills, projects, and journey in software development.">
+  <meta name="theme-color" content="#111111">
+  <title>Protifolito — Personal Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#home">Protifolito<span>.</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode">
+      <span id="theme-icon" aria-hidden="true">☼</span>
+      <span id="theme-label">Light mode</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">PORTFOLIO / 2026</p>
+        <h1>Ideas into<br><span>digital reality.</span></h1>
+        <p class="hero-description">
+          Hello, I'm <strong>Your Name</strong> — a student and aspiring developer
+          passionate about technology, design, and building meaningful digital experiences.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
+        <div class="orb"></div>
+        <p class="art-caption">LEARN · BUILD · IMPROVE</p>
+      </div>
+      <div class="hero-bottom">
+        <span>STUDENT</span>
+        <span>DEVELOPER IN PROGRESS</span>
+        <a href="#about">SCROLL TO DISCOVER ↓</a>
+      </div>
+    </section>
+
+    <section class="section content-section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">01 / INTRODUCTION</p>
+        <h2>A little<br>about me.</h2>
+      </div>
+      <div class="section-content">
+        <p class="large-copy">Curious by nature. Driven by creativity. Inspired by technology.</p>
+        <p class="body-copy">
+          I'm a student interested in software development and problem-solving.
+          I enjoy learning new technologies, experimenting with code, and turning ideas into practical projects.
+        </p>
+        <p class="body-copy">
+          My goal is to keep learning, improve my craft, and create digital experiences
+          that are simple, useful, and memorable.
+        </p>
+        <a class="text-link" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section content-section" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">02 / EXPERTISE</p>
+        <h2>Skills &<br>interests.</h2>
+      </div>
+      <div class="section-content">
+        <p class="body-copy">Technologies I'm learning and using to develop my skills.</p>
+        <div class="skills-grid">
+          <article class="skill"><span class="skill-number">01</span><h3>HTML</h3><p>Structure & accessibility</p></article>
+          <article class="skill"><span class="skill-number">02</span><h3>CSS</h3><p>Design & responsive layouts</p></article>
+          <article class="skill"><span class="skill-number">03</span><h3>JavaScript</h3><p>Interactive experiences</p></article>
+          <article class="skill"><span class="skill-number">04</span><h3>Java / Python</h3><p>Logic & problem-solving</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="projects-header">
+        <div>
+          <p class="eyebrow">03 / SELECTED WORK</p>
+          <h2>Things I've<br>been building.</h2>
+        </div>
+        <p class="body-copy">A selection of projects from my learning journey. More experiments and ideas are on the way.</p>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-visual visual-one" aria-hidden="true"><span class="visual-symbol">P.</span><span class="visual-index">PROJECT / 01</span></div>
+          <div class="project-info">
+            <div><p class="eyebrow">HTML · CSS · JS</p><h3>Personal Portfolio</h3><p class="project-description">A personal website showcasing my skills, projects, and journey.</p></div>
+            <a class="project-link" href="#home" aria-label="View personal portfolio">↗</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-visual visual-two" aria-hidden="true"><span class="visual-symbol">{ }</span><span class="visual-index">PROJECT / 02</span></div>
+          <div class="project-info">
+            <div><p class="eyebrow">JAVA</p><h3>Java Application</h3><p class="project-description">Replace this text with a description of your Java project.</p></div>
+            <a class="project-link" href="#contact" aria-label="Ask about Java project">↗</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-visual visual-three" aria-hidden="true"><span class="visual-symbol">[ ]</span><span class="visual-index">PROJECT / 03</span></div>
+          <div class="project-info">
+            <div><p class="eyebrow">PYTHON</p><h3>Python Project</h3><p class="project-description">Replace this text with a description of your Python project.</p></div>
+            <a class="project-link" href="#contact" aria-label="Ask about Python project">↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <p class="eyebrow">04 / GET IN TOUCH</p>
+      <h2>Have an idea?<br><span>Let's talk.</span></h2>
+      <p class="body-copy">
+        I'm open to connecting with people, sharing ideas, and exploring opportunities to learn and build.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="mailto:your.email@example.com">Send me an email ↗</a>
+        <a class="button button-secondary" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#home">Protifolito<span>.</span></a>
+    <p>Designed with intention. Built with code.</p>
+    <p>© <span id="year">2026</span> Your Name</p>
+    <a class="back-top" href="#home" aria-label="Back to top">↑</a>
+  </footer>
+</body>
+</html>
